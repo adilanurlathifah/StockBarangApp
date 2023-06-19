@@ -42,7 +42,7 @@ class MainViewModel : ViewModel() {
     fun getStatus(): LiveData<ApiStatus> = status
     fun scheduleUpdater(app: Application) {
         val request = OneTimeWorkRequestBuilder<UpdateWorker>()
-            .setInitialDelay(2, TimeUnit.MINUTES)
+            .setInitialDelay(1, TimeUnit.MINUTES)
             .build()
 
         WorkManager.getInstance(app).enqueueUniqueWork(

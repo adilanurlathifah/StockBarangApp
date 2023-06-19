@@ -4,4 +4,7 @@
 
     <string name="channel_name">Updater</string>
     <string name="channel_desc">Update data hewan otomatis</string>
+
+    <string name="notif_title">Hai, ada barang baru nih!</string>
+    <string name="notif_text">Yuk, cek sekarang biar up to date terus mengenai stok barangmu..</string>
 </resources>
