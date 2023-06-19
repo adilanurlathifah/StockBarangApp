@@ -1,4 +1,4 @@
-package org.assesment3.fragment.main
+package org.assesment3.fragments.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

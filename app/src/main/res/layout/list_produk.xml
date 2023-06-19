@@ -14,22 +14,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/biskuit" />
+        tools:src="@drawable/ic_broken_image" />
 
     <TextView
         android:id="@+id/brandTxtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:fontFamily="@font/mulish_bold"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toEndOf="@id/imageView"
         tools:text="Khong Guan" />
+
     <TextView
         android:id="@+id/productNameTxtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/mulish"
         app:layout_constraintStart_toStartOf="@+id/brandTxtV"
         app:layout_constraintTop_toBottomOf="@+id/guideline"
         tools:text="Khong Guan Assorted Biscuit" />

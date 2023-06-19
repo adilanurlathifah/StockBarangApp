@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //menambah color
+    <color name="tosca">#009688</color>
+    <color name="darktosca">#02635A</color>
+    <color name="green">#2CCE21</color>
+    <color name="red">#EE271E</color>
 </resources>

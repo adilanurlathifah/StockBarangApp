@@ -1,19 +1,19 @@
-package org.assesment3.fragment.main
+package org.assesment3.fragments.main
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import org.assesment3.MainActivity
+import org.assesment3.R
 import org.assesment3.databinding.FragmentMainBinding
 import org.assesment3.network.ApiStatus
 
@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
             adapter = myAdapter
             setHasFixedSize(true)
         }
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -52,6 +53,20 @@ class MainFragment : Fragment() {
         }
 
         viewModel.scheduleUpdater(requireActivity().application)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.about_menu) {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_aboutFragment)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun updateProgress(status: ApiStatus) {

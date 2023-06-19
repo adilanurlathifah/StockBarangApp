@@ -7,4 +7,7 @@
 
     <string name="notif_title">Hai, ada barang baru nih!</string>
     <string name="notif_text">Yuk, cek sekarang biar up to date terus mengenai stok barangmu..</string>
+    <string name="nama_produk">nama produk</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="penjelasan_aplikasi">Stock Barang merupakan sebuah aplikasi Android, dimana user dapat melihat catalog barang apa saja yang tersedia pada tokonya. Pengguna dapat melihat foto, nama barang serta brandnya.</string>
 </resources>
