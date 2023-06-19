@@ -1,12 +1,19 @@
-package org.assesment3
+package org.assesment3.fragment.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.assesment3.databinding.ListProdukBinding
+import org.assesment3.model.Product
 
-class MainAdapter(private val data: List<Product>) :
-    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+
+    private val data = mutableListOf<Product>()
+    fun updateData(newData: List<Product>) {
+        data.clear()
+        data.addAll(newData)
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(
         private val binding: ListProdukBinding
@@ -14,6 +21,7 @@ class MainAdapter(private val data: List<Product>) :
         fun bind(product: Product) = with(binding) {
             brandTxtV.text = product.brand
             productNameTxtV.text = product.productName
+            imageView.setImageResource(product.imageResId)
         }
     }
 
