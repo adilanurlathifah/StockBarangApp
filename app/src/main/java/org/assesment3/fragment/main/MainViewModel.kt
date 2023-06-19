@@ -1,16 +1,33 @@
 package org.assesment3.fragment.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.assesment3.R
 import org.assesment3.model.Product
+import org.assesment3.network.ProductApi
 
 class MainViewModel : ViewModel() {
     private val data = MutableLiveData<List<Product>>()
 
     init {
-            data.value = initData()
+        data.value = initData()
+        retrieveData()
+    }
+
+    private fun retrieveData() {
+        viewModelScope.launch (Dispatchers.IO) {
+            try {
+                val result = ProductApi.service.getProduct()
+                Log.d("MainViewModel", "Success: $result")
+            } catch (e: Exception) {
+                Log.d("MainViewModel", "Failure: ${e.message}")
+            }
+        }
     }
 
     private fun initData(): List<Product> {
