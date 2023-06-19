@@ -3,5 +3,5 @@ package org.assesment3.model
 data class Product(
     val brand: String,
     val productName: String,
-    val imageResId: Int
+    val imageId: String
 )

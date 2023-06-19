@@ -3,8 +3,11 @@ package org.assesment3.fragment.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import org.assesment3.R
 import org.assesment3.databinding.ListProdukBinding
 import org.assesment3.model.Product
+import org.assesment3.network.ProductApi
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
@@ -15,13 +18,14 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class ViewHolder(
-        private val binding: ListProdukBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ListProdukBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) = with(binding) {
             brandTxtV.text = product.brand
             productNameTxtV.text = product.productName
-            imageView.setImageResource(product.imageResId)
+            Glide.with(imageView.context)
+                .load(ProductApi.getProductUrl(product.imageId))
+                .error(R.drawable.ic_broken_image)
+                .into(imageView)
         }
     }
 
